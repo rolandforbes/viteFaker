@@ -10,8 +10,7 @@ enum FakerResourcesEnum {
     places = 'places',
     products = 'products',
     texts = 'texts',
-    users = 'users',
-    custom = 'custom'
+    users = 'users'
 }
 
 //  This is a function that maps string values back to the enum itself, or the corresponding UI.

@@ -1,17 +1,38 @@
 import { GoogleMap } from '@react-google-maps/api';
+import noImage from '../assets/noimage.png';
 
 class Utils {
-    booksUI() {
-        return <div>
-            Books stuff will go here!
+    imageUI(apiData: any) {
+        return <div className='my-3'>
+            <img alt='no image found'
+                className='opacity-50'
+                src={noImage}
+                style={{ height: '30vh', objectFit: 'contain', width: '100%' }} />
+            <p className='text-end text-xs'>
+                <p className='mb-2'>
+                    <span className='red'>*Faker images not rendering for some reason..</span>
+                </p>
+                <div className='d-flex justify-content-end'>
+                    <span className='w-50'>
+                        <b className='blue'>URL:</b>{apiData?.url}<br />
+                        <b className='brown'>DESCRIPTION:</b>{apiData?.description}
+                    </span>
+                </div>
+            </p>
         </div>;
     }
+    jsonUI(apiData: any) {
+        return apiData && <p>
+            <pre className='json'>{JSON.stringify(apiData, null, '\t')}</pre>
+        </p>;
+    }
 
-    calculateUIFromResourceType(resourceType: string, selected: any, setSelected: any, isLoaded: boolean, centerOfMap: any) {
+    calculateUIFromResourceType(resourceType: string, apiData: any, setSelected: any, isLoaded: boolean, centerOfMap: any) {
         switch (resourceType) {
-            case 'addresses': return this.mapUI(selected, setSelected, isLoaded, centerOfMap);
-            case 'books': return this.booksUI();
-            default: return <></>;
+            case 'addresses': return this.mapUI(apiData, setSelected, isLoaded, centerOfMap);
+            case 'images': return this.imageUI(apiData);
+            case 'places': return this.mapUI(apiData, setSelected, isLoaded, centerOfMap);
+            default: return this.jsonUI(apiData);
         }
     }
 

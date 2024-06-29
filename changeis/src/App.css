@@ -53,6 +53,11 @@
   justify-content: end;
 }
 
+.json {
+  max-width: 40vw;
+  overflow-x: scroll;
+}
+
 .light-button {
   background-color: #3e3e42;
 }
@@ -124,6 +129,9 @@
   font-size: 7px;
 }
 
+.w-50 {
+  width: 50%;
+}
 .w-100 {
   width: 100%;
 }

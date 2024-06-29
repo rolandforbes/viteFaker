@@ -4,6 +4,7 @@ import { FakerResourcesEnum } from '../services/fakerResources';
 import { useLoadScript } from '@react-google-maps/api';
 import Utils from '../services/utils';
 
+// This component holds the UI that is shown when user clicks the "Show FakerAPI" button.
 interface IFakerProps {
     showFakerAPI: boolean
 }
@@ -49,9 +50,9 @@ const FakerAPIDemo = ({ showFakerAPI }: IFakerProps) => {
         </div>;
     }
 
-    return <div className={[showFakerAPI ? 'grow-tall' : '', 'border-bottom border-top'].join(' ')}>
+    return <div className={['border-bottom border-top', showFakerAPI ? 'grow-tall' : ''].join(' ')}>
         {showFakerAPI && <>
-            <div className={['d-flex gap-2', !activeResource ? 'align-items-center' : ''].join(' ')}>
+            <div className='d-flex gap-2'>
                 {selectDataTypeList()}
                 <div className='flex-fill ms-3'>
                     {utils?.calculateUIFromResourceType(activeResource, apiData, setApiData, isLoaded, centerOfMap)}
