@@ -2,7 +2,7 @@
 //  This enum should match the Resources List for FakerAPI, found at this url: 
 //  https://fakerapi.it/en
 
-enum FakerResources {
+enum FakerResourcesEnum {
     Addresses,
     Books,
     Companies,
@@ -15,4 +15,4 @@ enum FakerResources {
     Users,
     Custom
 }
-export default [ FakerResources ];
+export { FakerResourcesEnum };

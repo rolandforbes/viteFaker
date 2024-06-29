@@ -36,6 +36,11 @@ button {
   filter: drop-shadow(0 0 5px yellow);
 }
 
+.grow-tall {
+  animation: grow-tall 1s;
+  animation-fill-mode: forwards;
+}
+
 .justify-content-end {
   justify-content: end;
 }
@@ -75,8 +80,22 @@ button {
   padding-right: 1rem;
 }
 
+.shrink-down {
+  animation: shrink-down 1s;
+}
+
 .text-end {
   text-align: end;
+}
+
+@keyframes grow-tall {
+  from { height: 0px }
+  to { height: 20rem }
+}
+
+@keyframes shrink-down {
+  from { height: 20rem }
+  to { height: 0px }
 }
 
 @keyframes spin {
