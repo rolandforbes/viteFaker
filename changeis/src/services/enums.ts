@@ -1,12 +1,13 @@
 
 //  This enum should match the Resources List for FakerAPI, found at this url: 
 //  https://fakerapi.it/en
+//  Enum is case sensitive
 
 enum FakerResourcesEnum {
     addresses,
     books,
     companies,
-    creditCards,
+    credit_cards,
     images,
     persons,
     places,
