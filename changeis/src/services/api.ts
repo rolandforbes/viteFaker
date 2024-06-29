@@ -1,7 +1,8 @@
 
 class ApiCalls {
-    getFakerData() {
-        return null;
+    async getFakerData() {
+        let res = await fetch(`https://fakerapi.it/api/v1/images?_width=380`);
+        return res;
     }
 }
 export default ApiCalls;

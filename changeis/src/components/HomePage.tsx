@@ -22,21 +22,21 @@ const HomePage = ({ children, setShowFakerAPI, showFakerAPI }: IHomePageProps) =
                 ROLAND FORBES
             </h1>
         </div>
-        <h3 className='mb-1 opacity-50 text-start'>
+        <h3 className='mb-1 opacity-50'>
             <u>FAKER API CODING CHALLENGE SUBMISSION</u>
         </h3>
-        <h5 className='align-items-center d-flex gap-1 logo-xs m-0 text-start'>
+        <h5 className='align-items-center d-flex gap-1 logo-xs m-0'>
             <span className='brown pe-2'>
                 BUILT USING:
             </span>
             <a href='https://react.dev' target='_blank'>
-                <img className='logo-spin' src={reactLogo} />
+                <img className={showFakerAPI ? 'opacity-25' : 'logo-spin'} src={reactLogo} />
             </a>
             <a href='https://typescriptlang.org' target='_blank'>
-                <img src={typescriptLogo} />
+                <img className={showFakerAPI ? 'opacity-25' : ''} src={typescriptLogo} />
             </a>
             <a href='https://vitejs.dev' target='_blank'>
-                <img src={viteLogo} />
+                <img className={showFakerAPI ? 'opacity-25' : ''} src={viteLogo} />
             </a>
             <a href='https://fakerjs.dev' target='_blank'>
                 <img className={showFakerAPI ? 'glow' : ''} src={fakerLogo} />
