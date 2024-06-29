@@ -9,6 +9,10 @@
   align-items: center;
 }
 
+.brown {
+  color: #f4a460;
+}
+
 .d-flex {
   display: flex;
 }
@@ -25,8 +29,8 @@
   gap: 1rem;
 }
 
-.brown {
-  color: #f4a460;
+.glow {
+  filter: drop-shadow(0 0 5px yellow);
 }
 
 .justify-content-end {
@@ -95,12 +99,4 @@
   to {
     transform: rotate(360deg);
   }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
 }

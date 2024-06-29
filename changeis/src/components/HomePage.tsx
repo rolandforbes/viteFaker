@@ -1,16 +1,17 @@
 
 import changeIsLogo from '/changeIsLogo.png';
-import fakerLogo from './assets/fakerAPILogo.svg';
-import reactLogo from './assets/react.svg';
-import typescriptLogo from './assets/typescript.svg';
+import fakerLogo from '../assets/fakerAPILogo.svg';
+import reactLogo from '../assets/react.svg';
+import typescriptLogo from '../assets/typescript.svg';
 import viteLogo from '/vite.svg';
 
-type Props = {
-    children: string | JSX.Element | JSX.Element[] | null
+interface IHomePageProps {
+    children: JSX.Element | JSX.Element[] | null,
+    setShowFakerAPI: (val: boolean) => void,
+    showFakerAPI: boolean,
 }
 
-const HomePage = ({ children }: Props) => {
-
+const HomePage = ({ children, setShowFakerAPI, showFakerAPI }: IHomePageProps) => {
     return <div>
         <div className='align-items-center d-flex gap-2'>
             <div>
@@ -26,7 +27,7 @@ const HomePage = ({ children }: Props) => {
         </h3>
         <h5 className='align-items-center d-flex gap-1 logo-xs m-0 text-start'>
             <span className='brown pe-2'>
-                <u>BUILT USING:</u>
+                BUILT USING:
             </span>
             <a href='https://react.dev' target='_blank'>
                 <img className='logo-spin' src={reactLogo} />
@@ -38,13 +39,15 @@ const HomePage = ({ children }: Props) => {
                 <img src={viteLogo} />
             </a>
             <a href='https://fakerjs.dev' target='_blank'>
-                <img src={fakerLogo} />
+                <img className={showFakerAPI ? 'glow' : ''} src={fakerLogo} />
             </a>
         </h5>
         <div className='d-flex justify-content-end'>
-            <button>Call FakerAPI</button>
+            <button onClick={() => setShowFakerAPI(!showFakerAPI)}>
+                {!showFakerAPI ? 'Show' : 'Hide'} FakerAPI
+            </button>
         </div>
         {children}
-    </div>
+    </div>;
 }
 export default HomePage;

@@ -1,12 +1,14 @@
+import { useState } from 'react';
 import Faker from './components/Faker';
 import HomePage from './components/HomePage';
 import './App.css';
 
 const App = () => {
+  const [showFakerAPI, setShowFakerAPI] = useState(false);
   return <>
-    <HomePage>
-      <Faker />
+    <HomePage setShowFakerAPI={setShowFakerAPI} showFakerAPI={showFakerAPI}>
+      <Faker showFakerAPI={showFakerAPI} />
     </HomePage>
   </>;
 }
-export default App
+export default App;
