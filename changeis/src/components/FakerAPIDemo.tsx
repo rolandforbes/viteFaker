@@ -25,11 +25,7 @@ const FakerAPIDemo = ({ showFakerAPI }: IFakerProps) => {
     useEffect(() => {
         getDataFromFakerAPI();
     }, [activeResource]);
-
-    useEffect(() => {
-        console.log('api data is', apiData);
-    }, [apiData]);
-
+    
     const getDataFromFakerAPI = async () => {
         const dataFromAPI = activeResource && await api.getFakerData(activeResource, quantity);
         if(dataFromAPI?.length > 0) {
