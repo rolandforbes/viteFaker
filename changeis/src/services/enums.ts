@@ -3,16 +3,16 @@
 //  https://fakerapi.it/en
 
 enum FakerResourcesEnum {
-    Addresses,
-    Books,
-    Companies,
-    CreditCards,
-    Images,
-    Persons,
-    Places,
-    Products,
-    Texts,
-    Users,
-    Custom
+    addresses,
+    books,
+    companies,
+    creditCards,
+    images,
+    persons,
+    places,
+    products,
+    texts,
+    users,
+    custom
 }
 export { FakerResourcesEnum };

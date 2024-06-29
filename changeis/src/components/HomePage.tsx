@@ -20,11 +20,11 @@ const HomePage = ({ children, setShowFakerAPI, showFakerAPI }: IHomePageProps) =
             <h2 className='brown'>&</h2>
             <h1 className='fw-light'>ROLAND FORBES</h1>
         </div>
-        <h3 className={['mb-1', showFakerAPI ? 'opacity-25' : 'opacity-50'].join(' ')}>
+        <h3 className={['mb-2', showFakerAPI ? 'opacity-25' : 'opacity-50'].join(' ')}>
             <u>FAKER API CODING CHALLENGE SUBMISSION</u>
         </h3>
         <h5 className='align-items-center d-flex gap-1 logo-xs m-0'>
-            <span className={['brown pe-2', showFakerAPI ? 'opacity-25' : ''].join(' ')}>
+            <span className='brown pe-2'>
                 BUILT USING:
             </span>
             <a href='https://react.dev' target='_blank'>
@@ -41,8 +41,8 @@ const HomePage = ({ children, setShowFakerAPI, showFakerAPI }: IHomePageProps) =
             </a>
         </h5>
         <div className='d-flex justify-content-end'>
-            <button onClick={() => setShowFakerAPI(!showFakerAPI)}>
-                {!showFakerAPI ? 'Show' : 'Hide'} FakerAPI
+            <button className={showFakerAPI ? 'opacity-50' : ''} onClick={() => setShowFakerAPI(!showFakerAPI)}>
+                {!showFakerAPI ? 'Show FakerAPI' : 'Cancel'}
             </button>
         </div>
         {children}

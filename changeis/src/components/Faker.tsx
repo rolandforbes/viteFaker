@@ -15,28 +15,48 @@ const Faker = ({ showFakerAPI }: IFakerProps) => {
         getDataFromFakerAPI();
     }, [activeResource]);
 
+    useEffect(() => {
+        console.log("api data is", apiData)
+    }, [apiData]);
+
     const getDataFromFakerAPI = async () => {
         if(!activeResource) return;
         const dataFromAPI = await api.getFakerData(activeResource);
         if(dataFromAPI) {
-            console.log("data from faker API is: ", dataFromAPI);
             setApiData(dataFromAPI);
         }
     }
 
     const mapActiveResourceToHTML = () => {
         switch(activeResource) {
-            case FakerResourcesEnum.Images: return null;
+            case FakerResourcesEnum.images: return null;
             default: return <></>;
         }
     }
 
+    const selectDataType = () => {
+        return <div>
+            <h3 className='fw-bold'>
+                Select data type:
+            </h3>
+            {(Object.keys(FakerResourcesEnum) as Array<keyof typeof FakerResourcesEnum>).filter((v) => !isNaN(Number(v))).map(key => {
+                return <div className='mb-1' key={key}>
+                    <button className={['w-100', activeResource === FakerResourcesEnum[key] ? 'light-button' : ''].join(' ')} onClick={() => setActiveResource(FakerResourcesEnum[key])}>
+                        {FakerResourcesEnum[key]}
+                    </button>
+                </div>;
+            })}
+        </div>;
+    }
+
     return <div className={[showFakerAPI ? 'grow-tall' : 'shrink-down', 'border-bottom border-top'].join(' ')}>
         {showFakerAPI && <>
-            <h3 className='fw-bold'>
-                What kind of data are you looking for?
-            </h3>
-            {mapActiveResourceToHTML()} 
+            <div className='align-items-center d-flex gap-2'>
+                {selectDataType()}
+                <div>
+                    {mapActiveResourceToHTML()}
+                </div>
+            </div>
         </>}
     </div>;
 }
