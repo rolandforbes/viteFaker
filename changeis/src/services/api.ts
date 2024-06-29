@@ -1,6 +1,4 @@
 
-import { FakerResourcesEnum } from './fakerResources';
-
 class ApiCalls {
     async getFakerData(resource: string, quantity: Number) {
         let res = await fetch(`https://fakerapi.it/api/v1/${resource}?_quantity=${quantity}`);

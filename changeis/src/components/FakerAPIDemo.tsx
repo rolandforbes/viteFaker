@@ -19,7 +19,7 @@ const FakerAPIDemo = ({ showFakerAPI }: IFakerProps) => {
         lat: apiData?.latitude ? apiData.latitude : null, 
         lng: apiData?.longitude ? apiData.latitude : null
     }), [apiData]);
-    const [quantity, setQuantity] = useState<Number>(1);
+    const quantity = 1;
     const { isLoaded } = useLoadScript({ googleMapsApiKey: 'AIzaSyAZNiyxrXmftyRky4Fmu8A-9qO0LLcXNe8', libraries: ['places'] });
 
     useEffect(() => {
