@@ -2,6 +2,16 @@ import { GoogleMap } from '@react-google-maps/api';
 import noImage from '../assets/noimage.png';
 
 class Utils {
+
+    calculateUIFromResourceType(resourceType: string, apiData: any, setApiData: any, isLoaded: boolean, centerOfMap: any) {
+        switch (resourceType) {
+            case 'addresses': return this.mapUI(apiData, setApiData, isLoaded, centerOfMap);
+            case 'images': return this.imageUI(apiData);
+            case 'places': return this.mapUI(apiData, setApiData, isLoaded, centerOfMap);
+            default: return this.jsonUI(apiData);
+        }
+    }
+
     imageUI(apiData: any) {
         return <div className='my-3'>
             <img alt='no image found'
@@ -21,36 +31,28 @@ class Utils {
             </p>
         </div>;
     }
+
     jsonUI(apiData: any) {
         return apiData && <p>
             <pre className='json'>{JSON.stringify(apiData, null, '\t')}</pre>
         </p>;
     }
 
-    calculateUIFromResourceType(resourceType: string, apiData: any, setSelected: any, isLoaded: boolean, centerOfMap: any) {
-        switch (resourceType) {
-            case 'addresses': return this.mapUI(apiData, setSelected, isLoaded, centerOfMap);
-            case 'images': return this.imageUI(apiData);
-            case 'places': return this.mapUI(apiData, setSelected, isLoaded, centerOfMap);
-            default: return this.jsonUI(apiData);
-        }
-    }
-
-    mapUI(selected: any, setSelected: any, isLoaded: boolean, centerOfMap: any) {
+    mapUI(apiData: any, setApiData: any, isLoaded: boolean, centerOfMap: any) {
         return isLoaded && <div className='my-3'>
             <GoogleMap center={centerOfMap} 
                 mapContainerStyle={{ border: '2px solid white', borderRadius: '10px', width: '100%', height: '34vh' }}
                 mapContainerClassName='map-container'
-                onDragEnd={() => selected && setSelected({ lat: selected.getCenter().lat(), lng: selected.getCenter().lng() })}
-                onLoad={m => { m.setOptions({ minZoom: 4, maxZoom: 18, zoom: 12 }); setSelected(m); }}
+                onDragEnd={() => apiData && setApiData({ lat: apiData.getCenter().lat(), lng: apiData.getCenter().lng() })}
+                onLoad={m => { m.setOptions({ minZoom: 4, maxZoom: 18, zoom: 12 }); setApiData(m); }}
                 options={{ gestureHandling: "greedy" }}
                 zoom={8} />
             <p className='text-end'>
-                {selected?.street && <><b className='red'>Address</b>: {selected.street}<br /></>}
-                {selected?.city && <><b className='blue'>City</b>: {selected.city}<br /></>}
-                {selected?.county_code && <><b className='brown'>County Code</b>: {selected.county_code}<br /></>}
-                {selected?.zipcode && <><b className='green'>ZIP Code</b>: {selected.zipcode}<br /></>}
-                {selected?.country && <><b className='pink'>Country</b>: {selected.country}<br /></>}
+                {apiData?.street && <><b className='red'>Address</b>: {apiData.street}<br /></>}
+                {apiData?.city && <><b className='blue'>City</b>: {apiData.city}<br /></>}
+                {apiData?.county_code && <><b className='brown'>County Code</b>: {apiData.county_code}<br /></>}
+                {apiData?.zipcode && <><b className='green'>ZIP Code</b>: {apiData.zipcode}<br /></>}
+                {apiData?.country && <><b className='pink'>Country</b>: {apiData.country}<br /></>}
             </p>
         </div>;
     }
