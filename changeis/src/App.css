@@ -29,6 +29,10 @@
   color: #f4a460;
 }
 
+.justify-content-end {
+  justify-content: end;
+}
+
 .logo {
   height: 5em;
   will-change: filter;
