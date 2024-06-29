@@ -11,15 +11,26 @@
 
 .d-flex {
   display: flex;
-  gap: 1.2rem;
 }
 
 .fw-light {
   font-weight: 300;
 }
 
+.gap-1 {
+  gap: .63rem;
+}
+
+.gap-2 {
+  gap: 1rem;
+}
+
+.brown {
+  color: #f4a460;
+}
+
 .logo {
-  height: 6em;
+  height: 5em;
   will-change: filter;
   transition: filter 300ms;
 }
@@ -30,8 +41,17 @@
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
+.logo-xs img {
+  cursor: pointer;
+  height: 1.5rem;
+}
+
 .mb-0 {
   margin-bottom: 0;
+}
+
+.mb-1 {
+  margin-bottom: .55rem;
 }
 
 .m-0 {
@@ -44,6 +64,10 @@
 
 .opacity-50 {
   opacity: 50%;
+}
+
+.pe-2 {
+  padding-right: 1rem;
 }
 
 .text-end {
