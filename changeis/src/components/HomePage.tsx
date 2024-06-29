@@ -13,14 +13,14 @@ interface IHomePageProps {
 
 const HomePage = ({ children, setShowFakerAPI, showFakerAPI }: IHomePageProps) => {
     return <div>
-        <div className={['align-items-center d-flex gap-2', showFakerAPI ? 'opacity-50' : ''].join(' ')}>
+        <div className={['align-items-center d-flex gap-2', showFakerAPI ? 'opacity-25' : ''].join(' ')}>
             <div>
                 <img src={changeIsLogo} className="logo" alt='changeis logo' />
             </div>
             <h2 className='brown'>&</h2>
             <h1 className='fw-light'>ROLAND FORBES</h1>
         </div>
-        <h3 className={['mb-2', showFakerAPI ? 'opacity-25' : 'opacity-50'].join(' ')}>
+        <h3 className={['mb-2', showFakerAPI ? '' : 'opacity-50'].join(' ')}>
             <u>FAKER API CODING CHALLENGE SUBMISSION</u>
         </h3>
         <h5 className='align-items-center d-flex gap-1 logo-xs m-0'>

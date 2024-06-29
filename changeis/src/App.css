@@ -20,6 +20,10 @@ button {
   display: flex;
 }
 
+.flex-fill {
+  flex: 1;
+}
+
 .fw-light {
   font-weight: 300;
 }
@@ -76,6 +80,10 @@ button {
   margin-bottom: .82rem;
 }
 
+.ms-3 {
+  margin-left: 3rem;
+}
+
 .opacity-25 {
   opacity: 25%;
 }
@@ -88,12 +96,16 @@ button {
   padding-right: 1rem;
 }
 
-.shrink-down {
-  animation: shrink-down 1s;
+.text-center {
+  text-align: center;
 }
 
 .text-end {
   text-align: end;
+}
+
+.text-xs {
+  font-size: 7px;
 }
 
 .w-100 {
@@ -109,11 +121,6 @@ button {
     height: 20rem;
     opacity: 1;
   }
-}
-
-@keyframes shrink-down {
-  from { height: 20rem }
-  to { height: 0px }
 }
 
 @keyframes spin {
