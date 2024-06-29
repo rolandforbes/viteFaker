@@ -5,9 +5,21 @@
   text-align: center;
 }
 
+.align-items-center {
+  align-items: center;
+}
+
+.d-flex {
+  display: flex;
+  gap: 1.2rem;
+}
+
+.fw-light {
+  font-weight: 300;
+}
+
 .logo {
   height: 6em;
-  padding: 1.5em;
   will-change: filter;
   transition: filter 300ms;
 }
@@ -16,6 +28,30 @@
 }
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+.mb-0 {
+  margin-bottom: 0;
+}
+
+.m-0 {
+  margin: 0;
+}
+
+.opacity-25 {
+  opacity: 25%;
+}
+
+.opacity-50 {
+  opacity: 50%;
+}
+
+.text-end {
+  text-align: end;
+}
+
+.text-start {
+  text-align: start;
 }
 
 @keyframes logo-spin {
